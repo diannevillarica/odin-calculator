@@ -1,31 +1,22 @@
-const display = document.querySelector(".display");
+const display = document.querySelector(".display span");
 const clear = document.querySelector(".clear");
-const dot = document.querySelector(".dot");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 let displayValue;
 
-let a = "";
-let b = "";
-let operator = "";
-
-const add = (a, b) => parseInt(a) + parseInt(b);
-const subtract = (a, b) => parseInt(a) - parseInt(b);
-const multiply = (a, b) => parseInt(a) * parseInt(b);
-const divide = (a, b) => parseInt(a) / parseInt(b);
+const add = (a, b) => Number(a) + Number(b);
+const subtract = (a, b) => Number(a) - Number(b);
+const multiply = (a, b) => Number(a) * Number(b);
+const divide = (a, b) => Number(a) / Number(b);
+const modulus = (a, b) => Number(a) % Number(b);
 
 const operate = (operator, a, b) => {
-  numbers.forEach((number) => {
-    number.addEventListener("click", (e) => {
-      if (operator === "") {
-        displayValue = a += e.target.innerText;
-        display.innerHTML = displayValue;
-        console.log(a);
-      } else {
-        displayValue = b += e.target.innerText;
-        console.log(b);
-        display.innerHTML = displayValue;
-      }
+  numbers.forEach((num) => {
+    num.addEventListener("click", (e) => {
+      operator === ""
+        ? (displayValue = a += e.target.innerText)
+        : (displayValue = b += e.target.innerText);
+      display.innerHTML = displayValue;
     });
   });
 
@@ -37,23 +28,30 @@ const operate = (operator, a, b) => {
         switch (operator) {
           case "+":
             displayValue = add(a, b);
-            display.innerHTML = displayValue;
             break;
           case "-":
             displayValue = subtract(a, b);
-            display.innerHTML = displayValue;
             break;
           case "x":
             displayValue = multiply(a, b);
-            display.innerHTML = displayValue;
             break;
           case "÷":
             displayValue = divide(a, b);
-            display.innerHTML = displayValue;
+            break;
+          case "%":
+            displayValue = modulus(a, b);
+            break;
+          case "+/-":
+            if (operator === "+") {
+              displayValue = subtract(a, b);
+            } else if (operator === "-") {
+              displayValue = add(a, b);
+            }
             break;
           default:
             break;
         }
+        display.innerHTML = displayValue;
       }
     });
   });
@@ -67,4 +65,7 @@ const operate = (operator, a, b) => {
   });
 };
 
-operate(operator, a, b); // this is user input
+let a = "";
+let b = "";
+let operator = "";
+operate(operator, a, b);
