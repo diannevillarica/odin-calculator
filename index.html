@@ -13,27 +13,38 @@
       <div class="calculator">
         <div class="calculator__display display"><span>0</span></div>
         <div class="calculator--buttons">
-          <button class="calculator__button clear">AC</button>
-          <button class="calculator__button operator">+/-</button>
-          <button class="calculator__button operator">%</button>
-          <button class="calculator__button operator">÷</button>
-          <button class="calculator__button number">7</button>
-          <button class="calculator__button number">8</button>
-          <button class="calculator__button number">9</button>
-          <button class="calculator__button operator">x</button>
-          <button class="calculator__button number">4</button>
-          <button class="calculator__button number">5</button>
-          <button class="calculator__button number">6</button>
-          <button class="calculator__button operator">-</button>
-          <button class="calculator__button number">1</button>
-          <button class="calculator__button number">2</button>
-          <button class="calculator__button number">3</button>
-          <button class="calculator__button operator">+</button>
-          <button class="calculator__button calculator__button--0 number">
+          <button class="calculator__button clear" value="clear">C</button>
+          <button class="calculator__button operator" value="÷">÷</button>
+          <button class="calculator__button operator" value="x">x</button>
+          <button class="calculator__button back" value="↵">&crarr;</button>
+
+          <button class="calculator__button number" value="7">7</button>
+          <button class="calculator__button number" value="8">8</button>
+          <button class="calculator__button number" value="9">9</button>
+          <button class="calculator__button operator" value="-">-</button>
+
+          <button class="calculator__button number" value="4">4</button>
+          <button class="calculator__button number" value="5">5</button>
+          <button class="calculator__button number" value="6">6</button>
+          <button class="calculator__button operator" value="+">+</button>
+
+          <button class="calculator__button number" value="1">1</button>
+          <button class="calculator__button number" value="2">2</button>
+          <button class="calculator__button number" value="3">3</button>
+          <button
+            class="calculator__button calculator__button--equals operator"
+            value="="
+          >
+            =
+          </button>
+
+          <button
+            class="calculator__button calculator__button--0 number"
+            value="0"
+          >
             0
           </button>
-          <button class="calculator__button number">.</button>
-          <button class="calculator__button operator">=</button>
+          <button class="calculator__button decimal" value=".">.</button>
         </div>
       </div>
     </main>
